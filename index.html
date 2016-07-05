@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Portugal FC</title>
+    <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body ng-app="ngclassifieds" ng-controller="ngclassifiedsCtrl">
+    
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <p> <strong>Team</strong></p>
+                <md-button ng-click="openSidebar()">
+                    <md-icon class=" mdi mdi-plus-circle"></md-icon>
+                    New Member
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-sidenav class="md-sidenav-left md-whiteframe-Z2" md-component-id="left">
+            <md-toolbar class='md-toolbar-tools'>
+                <h1>add a New Team Member</h1>
+            </md-toolbar>
+            <md-content layout-padding>
+                <form>
+                    <md-input-container>
+                        <label for="login"> Name </label>
+                        <input type="text" id="name" md-autofocus>
+                    </md-input-container>
+                    <md-input-container>
+                        <label for="id"> Number </label>
+                        <input type="text" id="number">
+                    </md-input-container>
+                    <md-input-container>
+                        <label for="image"> ImageUrl </label>
+                        <input type="text" id="image">
+                    </md-input-container>
+                    <md-input-container>
+                        <label for="repo_url"> Position </label>
+                        <input type="text" id="position">
+                    </md-input-container>
+                    <md-button class="md-primary">
+                        <strong>save</strong>
+                    </md-button>
+                    <md-button class="md-primary">
+                        <strong>save edit</strong>
+                    </md-button>
+                    <md-button class="md-warn" ng-click="closeSidebar()">
+                        <strong>cancel</strong>
+                    </md-button>
+                </form>
+            </md-content>
+        </md-sidenav>
+        <md-content class="md-padding" layout="row" layout-wrap>
+            <md-card ng-repeat="classified in classifieds" flex="30">
+                <div >
+                    <img ng-src="{{classified.image}}" alt="">
+                </div>
+                <md-card-content>
+                    <div class="classfieds-info">
+                        <h2 class="md-title"> Name: {{classified.login}}</h2>
+                        <h3> Number: {{classified.number}}</h3>
+                        <h4> Position: {{classified.postion}}</h4>
+                    </div>
+    
+            <md-button ng-click="show = true" class="md-raised md-primary  md-ink-ripple"> <strong>contact</strong> </md-button>
+            <div>
+            	<p ng-show="show"> <md-icon class="mdi mdi-icon-email"></md-icon>email: {{classified.url}} </p>
+            </div>
+        	
+    
+    <!-- <div class = "showw">
+                    <p ng-show = "showContent()"></p>
+
+                    	
+                    </div>
+                    		 -->
+    <!-- <md-icon class = "mdi mdi-email"></md-icon>
+                    			<p>email: {{getdata}}</p> -->
+    </md-card-content>
+    </md-card>
+    </md-content>
+    <!-- <input type="text" placeholder="enter ur name" ng-model = "name">
+
+<h1> {{ name }}</h1>
+<SandyPrabu><SandyPrabu>
+
+ -->
+    <!-- <p> {{message}}</p> -->
+    <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="components/classifieds.ctr.js"></script>
+    <script type="text/javascript" src="components/classifieds.fac.js"></script>
+    <script type="text/javascript" src="node_modules/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="node_modules/angular-material/angular-material.js"></script>
+    <script type="text/javascript" src="node_modules/angular-animate/angular-animate.js"></script>
+</body>
+
+</html>

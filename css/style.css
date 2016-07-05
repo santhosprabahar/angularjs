@@ -1,0 +1,16 @@
+button .material-icons {
+    margin-top: 7px;
+}
+
+
+md-card>:not(md-card-content) img, md-card>img {
+  height: 100% !important;
+}
+.md-padding{
+    
+    background-image: url("http://il5.picdn.net/shutterstock/videos/8423527/thumb/1.jpg");
+    
+}
+.md-primary md-k{
+	background-color: red;
+}
