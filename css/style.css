@@ -14,3 +14,35 @@ md-card>:not(md-card-content) img, md-card>img {
 .md-primary md-k{
 	background-color: red;
 }
+
+.img-class {
+width: 395px;
+height: auto;
+}
+
+p .material-icons {
+	margin-top: 07px;
+}
+
+
+
+.classified.ng-enter, .calssified.ng-move {
+	transition: 0.4s all;
+	opacity: 0;
+}
+
+.classified.ng-enter.ng-enter-active , .classifiede.ng-move.ng-move-active {
+	opacity: 1;	
+}
+
+
+
+.classified.ng-leave{
+	animation: 0.4s fade_clasified;
+}
+
+
+@keyframes 	fade_clasified {
+	from {opacity:1;}
+	to {opacity: 0;}
+}

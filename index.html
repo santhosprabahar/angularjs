@@ -9,78 +9,124 @@
 </head>
 
 <body ng-app="ngclassifieds" ng-controller="ngclassifiedsCtrl">
-    
-        <md-toolbar>
-            <div class="md-toolbar-tools">
-                <p> <strong>Team</strong></p>
-                <md-button ng-click="openSidebar()">
-                    <md-icon class=" mdi mdi-plus-circle"></md-icon>
-                    New Member
-                </md-button>
-            </div>
-        </md-toolbar>
-        <md-sidenav class="md-sidenav-left md-whiteframe-Z2" md-component-id="left">
-            <md-toolbar class='md-toolbar-tools'>
-                <h1>add a New Team Member</h1>
-            </md-toolbar>
-            <md-content layout-padding>
-                <form>
-                    <md-input-container>
-                        <label for="login"> Name </label>
-                        <input type="text" id="name" md-autofocus>
-                    </md-input-container>
-                    <md-input-container>
-                        <label for="id"> Number </label>
-                        <input type="text" id="number">
-                    </md-input-container>
-                    <md-input-container>
-                        <label for="image"> ImageUrl </label>
-                        <input type="text" id="image">
-                    </md-input-container>
-                    <md-input-container>
-                        <label for="repo_url"> Position </label>
-                        <input type="text" id="position">
-                    </md-input-container>
-                    <md-button class="md-primary">
-                        <strong>save</strong>
-                    </md-button>
-                    <md-button class="md-primary">
-                        <strong>save edit</strong>
-                    </md-button>
-                    <md-button class="md-warn" ng-click="closeSidebar()">
-                        <strong>cancel</strong>
-                    </md-button>
-                </form>
-            </md-content>
-        </md-sidenav>
-        <md-content class="md-padding" layout="row" layout-wrap>
-            <md-card ng-repeat="classified in classifieds" flex="30">
-                <div >
-                    <img ng-src="{{classified.image}}" alt="">
-                </div>
-                <md-card-content>
-                    <div class="classfieds-info">
-                        <h2 class="md-title"> Name: {{classified.login}}</h2>
-                        <h3> Number: {{classified.number}}</h3>
-                        <h4> Position: {{classified.postion}}</h4>
-                    </div>
-    
-            <md-button ng-click="show = true" class="md-raised md-primary  md-ink-ripple"> <strong>contact</strong> </md-button>
-            <div>
-            	<p ng-show="show"> <md-icon class="mdi mdi-icon-email"></md-icon>email: {{classified.url}} </p>
-            </div>
-        	
-    
-    <!-- <div class = "showw">
-                    <p ng-show = "showContent()"></p>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <p> <strong>   PORTUGAL FC</strong></p>
+            <md-button ng-click="openSidebar()">
+                <md-icon class=" mdi mdi-plus-circle"></md-icon>
+                New Member
+            </md-button>
 
-                    	
+            <md-button ng-click="showFilter = true" >
+                        <md-icon class=" mdi mdi-magnify"></md-icon>
+                Filter
+                    </md-button>
+            <!--   <md-button ng-click="showFilter = true" ng-show="!showFilter">
+                        <md-icon class=" mdi mdi-magnify"></md-icon>
+                Filter
+                    </md-button>
+                    <md-button ng-click='showFilter = false' ng-show='showFilter' >
+                        Close Filter
+                    </md-button> -->
+               
+           <!--  </md-button> -->
+        </div>
+    </md-toolbar>
+    <div class="filter" layout="row" layout-align="center center" ng-show="showFilter">
+        <md-input-container>
+            <label>
+                Enter the search term
+            </label>
+            <input type="text" ng-model="classifiedsFilter">
+        </md-input-container>
+        <md-input-container>
+            <label>
+                Category
+            </label>
+            <md-select ng-model="category" style="margin-bottom: 24px">
+                <md-option ng-repeat="category in categories">
+                    {{ category }}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <div>
+            <md-button style = "margin-bottom: 24px"class = "md-warn" ng-click="classifiedsFilter = ''; category = ''">
+                clear
+            </md-button>
+        </div>
+    </div>
+    <md-sidenav class="md-sidenav-left md-whiteframe-Z2" md-component-id="left">
+        <md-toolbar class='md-toolbar-tools'>
+            <h1>add a New Team Member</h1>
+        </md-toolbar>
+        <md-content layout-padding>
+            <form>
+                <md-input-container>
+                    <label for="name"> Name </label>
+                    <input type="text" id="name" md-autofocus ng-model="classified.login">
+                </md-input-container>
+                <md-input-container>
+                    <label for="id"> Number </label>
+                    <input type="text" id="number" ng-model="classified.number">
+                </md-input-container>
+                <md-input-container>
+                    <label for="image"> ImageUrl </label>
+                    <input type="text" id="image" ng-model="classified.image">
+                </md-input-container>
+                <md-input-container>
+                    <label for="repo_url"> Email</label>
+                    <input type="text" id="url" ng-model="classified.url">
+                </md-input-container>
+                <md-button class="md-primary" ng-if="!editing" ng-click="addClassified(classified)">
+                    <strong>save</strong>
+                </md-button>
+                <md-button class="md-primary" ng-if="editing" ng-click="saveEdit()">
+                    <strong>save edit</strong>
+                </md-button>
+                <md-button class="md-warn" ng-click="closeSidebar()">
+                    <strong>cancel</strong>
+                </md-button>
+                <pre> {{ classified | json }}</pre>
+            </form>
+        </md-content>
+    </md-sidenav>
+    <md-content class="md-padding" layout="row" layout-wrap>
+        <md-card ng-repeat="classified in classifieds | filter: classifiedsFilter | filter: category" flex="30" class = "classified" >
+            <div>
+                <img src="{{classified.image}}" alt="">
+            </div>
+            <md-card-content>
+                <div class="classfieds-info">
+                    <h2 class="md-title"> Name: {{classified.login}}</h2>
+                    <h3> Number: {{classified.number}}</h3>
+                    <!-- <h4> Position: {{classified.position}}</h4> -->
+                    <md-button ng-click="contact = true" ng-show="!contact">
+                        Contact
+                    </md-button>
+                    <md-button ng-click="showAdmin = true" ng-show="!showAdmin">
+                        Admin
+                    </md-button>
+                    <md-button ng-click='showAdmin = false' ng-show='showAdmin'>
+                        close
+                    </md-button>
+                </div>
+                <div class="classified-admin" ng-if="showAdmin">
+                    <p> Admin </p>
+                    <div layout="row">
+                        <md-button class='md-primary' ng-click="editClassified(classified)"> Edit </md-button>
+                        <md-button class='md-warn' ng-click="deleteClassified($event, classified)"> Delete </md-button>
                     </div>
-                    		 -->
-    <!-- <md-icon class = "mdi mdi-email"></md-icon>
-                    			<p>email: {{getdata}}</p> -->
-    </md-card-content>
-    </md-card>
+                </div>
+                <!-- 
+                <md-button ng-click="show = true" class="md-raised md-primary  md-ink-ripple"> <strong>contact</strong> </md-button>
+                <div>
+                    <p ng-show="show">
+                        <md-icon class="mdi mdi-email"></md-icon>
+                        email: {{classified.url}}
+                    </p>
+                </div>
+                -->
+        </md-card>
     </md-content>
     <!-- <input type="text" placeholder="enter ur name" ng-model = "name">
 
@@ -96,6 +142,7 @@
     <script type="text/javascript" src="node_modules/angular-aria/angular-aria.js"></script>
     <script type="text/javascript" src="node_modules/angular-material/angular-material.js"></script>
     <script type="text/javascript" src="node_modules/angular-animate/angular-animate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min.js" type="text/javascript"></script>
 </body>
 
 </html>

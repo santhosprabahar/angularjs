@@ -4,17 +4,17 @@
 
     angular
         .module("ngclassifieds")
-        .controller("ngclassifiedsCtrl", function($scope, $http, classifiedsFactory, $mdSidenav) {
-           
-                classifiedsFactory.getClassifieds().then(function(classifieds) {
-                    $scope.classifieds = classifieds.data;
+        .controller("ngclassifiedsCtrl", function($scope, $http, classifiedsFactory, $mdSidenav, $mdToast, $mdDialog) {
+
+            classifiedsFactory.getClassifieds().then(function(classifieds) {
+                $scope.classifieds = classifieds.data;
+
+                 $scope.categories = getCategories($scope.classifieds);
 
 
+            });
 
 
-                });
-
-            
 
 
             $scope.openSidebar = function() {
@@ -24,6 +24,77 @@
             $scope.closeSidebar = function() {
                 $mdSidenav('left').close();
             }
+
+
+            $scope.addClassified = function(classified) {
+                if (classified) {
+                    $scope.classifieds.push(classified);
+                    $scope.classified = {};
+                    $scope.closeSidebar();
+                    showToast("classified added successfully");
+
+                }
+            }
+
+            $scope.editClassified = function(editedClassified) {
+                $scope.editing = true;
+                $scope.openSidebar();
+                $scope.classified = editedClassified;
+
+            }
+
+            $scope.saveEdit = function() {
+                $scope.classified = {};
+                $scope.closeSidebar();
+                showToast("classified edited successfullys");
+            }
+
+            $scope.deleteClassified = function(event, classified) {
+                var confirm = $mdDialog.confirm()
+                    .title("Do you really want to remove " + classified.login + "?")
+                    .ok('Yes')
+                    .cancel('No')
+                    .targetEvent(event);
+                $mdDialog.show(confirm).then(function() {
+                    var index = $scope.classifieds.indexOf(classified);
+                    $scope.classifieds.splice(index, 1);
+                }, function() {
+
+                });
+                // var index = $scope.classifieds.indexOf(classified);
+                //    $scope.classifieds.splice(index, 1);
+
+            }
+
+
+
+
+            function showToast(msg) {
+                $mdToast.show(
+                    $mdToast.simple()
+                    .content(msg)
+                    .position('bottom, right')
+                    .hideDelay(4000)
+                    // .join('  ')
+                );
+            }
+
+            function getCategories(classifieds) {
+                var categories = [];
+
+                angular.forEach(classifieds, function(item) {
+                    angular.forEach(item.categories, function(category) {
+                        categories.push(category);
+                    });
+
+                });
+
+                return _.uniq(categories);
+
+            }
+
+
+
 
 
 

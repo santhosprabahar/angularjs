@@ -1,9 +1,13 @@
 [{
     "login": "Cristiano Ronaldo",
     "number": 1,
-    "image":" https://lh6.googleusercontent.com/-H3PYmWMurJA/AAAAAAAAAAI/AAAAAAABP9A/4MO2m7bIBFo/s0-c-k-no-ns/photo.jpg",
+    "image": " https://lh6.googleusercontent.com/-H3PYmWMurJA/AAAAAAAAAAI/AAAAAAABP9A/4MO2m7bIBFo/s0-c-k-no-ns/photo.jpg",
     "avatar_url": "https://avatars.githubusercontent.com/u/1?v=3",
     "position": "",
+    "categories": [
+        "LW",
+        "ST"
+    ],
     "url": "santhosprabahar@gmail.com",
     "html_url": "https://github.com/mojombo",
     "followers_url": "https://api.github.com/users/mojombo/followers",
@@ -20,7 +24,11 @@
 }, {
     "login": "Nani",
     "number": 2,
-    "image": "https://lh6.googleusercontent.com/-H3PYmWMurJA/AAAAAAAAAAI/AAAAAAABP9A/4MO2m7bIBFo/s0-c-k-no-ns/photo.jpg",
+    "categories": [
+        "RW",
+        "ST"
+    ],
+    "image": "http://s.weltsport.net/bilder/spieler/gross/37700.jpg",
     "avatar_url": "https://avatars.githubusercontent.com/u/2?v=3",
     "position": "",
     "url": "https://api.github.com/users/defunkt",
@@ -39,7 +47,11 @@
 }, {
     "login": "quaresema",
     "number": 3,
-    "image": "https://heavyeditorial.files.wordpress.com/2016/06/gettyimages-543026850.jpg?quality=65&strip=all&strip=all",
+    "categories": [
+        "ST",
+        "RM"
+    ],
+    "image": "https://pbs.twimg.com/profile_images/740569998171721728/EWGsehtc.jpg",
     "avatar_url": "https://avatars.githubusercontent.com/u/3?v=3",
     "position": "",
     "url": "https://api.github.com/users/pjhyett",
@@ -60,7 +72,11 @@
     "number": 4,
     "avatar_url": "C:/Users/sandy/Desktop/renato-sanches.jpg",
     "position": "",
-    "image": "https://i.ytimg.com/vi/o8z-SpEGQhg/maxresdefault.jpg",
+    "categories": [
+        "CAM",
+        "MID"
+    ],
+    "image": "http://cdn.images.express.co.uk/img/dynamic/67/590x/Sanches-657833.jpg",
     "url": "https://api.github.com/users/wycats",
     "html_url": "https://github.com/wycats",
     "followers_url": "https://api.github.com/users/wycats/followers",
@@ -74,11 +90,15 @@
     "received_events_url": "https://api.github.com/users/wycats/received_events",
     "type": "User",
     "site_admin": false
-},{
+}, {
     "login": "Carvalho",
     "number": 5,
     "avatar_url": "https://avatars.githubusercontent.com/u/4?v=3",
     "position": "",
+    "categories": [
+        "MID",
+        "CDM"
+    ],
     "image": "https://lh6.googleusercontent.com/-H3PYmWMurJA/AAAAAAAAAAI/AAAAAAABP9A/4MO2m7bIBFo/s0-c-k-no-ns/photo.jpg",
     "url": "https://api.github.com/users/wycats",
     "html_url": "https://github.com/wycats",
@@ -93,11 +113,16 @@
     "received_events_url": "https://api.github.com/users/wycats/received_events",
     "type": "User",
     "site_admin": false
-},{
+}, {
     "login": "Fonte",
     "number": 6,
     "avatar_url": "https://avatars.githubusercontent.com/u/4?v=3",
     "position": "",
+    "categories": [
+        "CB",
+        "DEF"
+        
+    ],
     "image": "https://lh6.googleusercontent.com/-H3PYmWMurJA/AAAAAAAAAAI/AAAAAAABP9A/4MO2m7bIBFo/s0-c-k-no-ns/photo.jpg",
     "url": "https://api.github.com/users/wycats",
     "html_url": "https://github.com/wycats",
@@ -112,11 +137,15 @@
     "received_events_url": "https://api.github.com/users/wycats/received_events",
     "type": "User",
     "site_admin": false
-},{
+}, {
     "login": "Pepe",
     "number": 7,
     "avatar_url": "https://avatars.githubusercontent.com/u/4?v=3",
     "position": "",
+    "categories": [
+        "CB",
+        "RB"
+    ],
     "image": "https://lh6.googleusercontent.com/-H3PYmWMurJA/AAAAAAAAAAI/AAAAAAABP9A/4MO2m7bIBFo/s0-c-k-no-ns/photo.jpg",
     "url": "https://api.github.com/users/wycats",
     "html_url": "https://github.com/wycats",
@@ -131,11 +160,15 @@
     "received_events_url": "https://api.github.com/users/wycats/received_events",
     "type": "User",
     "site_admin": false
-},{
+}, {
     "login": "Cedric",
     "number": 8,
     "avatar_url": "https://avatars.githubusercontent.com/u/4?v=3",
     "position": "",
+    "categories": [
+        "LB",
+        "RB"
+    ],
     "image": "https://lh6.googleusercontent.com/-H3PYmWMurJA/AAAAAAAAAAI/AAAAAAABP9A/4MO2m7bIBFo/s0-c-k-no-ns/photo.jpg",
     "url": "https://api.github.com/users/wycats",
     "html_url": "https://github.com/wycats",
@@ -150,11 +183,15 @@
     "received_events_url": "https://api.github.com/users/wycats/received_events",
     "type": "User",
     "site_admin": false
-},{
+}, {
     "login": "Rui Patricio",
     "number": 9,
     "avatar_url": "https://avatars.githubusercontent.com/u/4?v=3",
     "position": "",
+    "categories": [
+        "GK",
+        "RM"
+    ],
     "image": "https://lh6.googleusercontent.com/-H3PYmWMurJA/AAAAAAAAAAI/AAAAAAABP9A/4MO2m7bIBFo/s0-c-k-no-ns/photo.jpg",
     "url": "https://api.github.com/users/wycats",
     "html_url": "https://github.com/wycats",
@@ -169,5 +206,4 @@
     "received_events_url": "https://api.github.com/users/wycats/received_events",
     "type": "User",
     "site_admin": false
-}
-]
+}]
